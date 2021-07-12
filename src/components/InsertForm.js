@@ -12,10 +12,11 @@ export default function InsertForm({ onAddItem }) {
     const newItem = { text };
     
     if(text.length > 0){
-      const request = axios.post("http://localhost:4000/newitem", newItem);
+      const request = axios.post("http://localhost:4000/items", newItem);
 
       request.then((response) => {
-        window.location.reload();        
+        setText("");
+        onAddItem();    
       })
 
       request.catch((e) => {
@@ -24,8 +25,7 @@ export default function InsertForm({ onAddItem }) {
 
     }
 
-    setText("");
-    onAddItem();
+
   }
 
   return (
