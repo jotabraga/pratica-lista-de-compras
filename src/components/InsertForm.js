@@ -15,7 +15,11 @@ export default function InsertForm({ onAddItem }) {
       const request = axios.post("http://localhost:4000/newitem", newItem);
 
       request.then((response) => {
-        
+        window.location.reload();        
+      })
+
+      request.catch((e) => {
+        console.log(e);
       })
 
     }
